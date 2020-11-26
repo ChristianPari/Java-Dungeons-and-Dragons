@@ -1,20 +1,37 @@
-This repo contains each version of a Java [Liars Dice](https://en.wikipedia.org/wiki/Liar%27s_dice) game, the projects goal:<br>
-- Create the game liars Dice a game where players start with 7 dice each and play continues until 
-one player ends up with 2 dice or money is lost.
+This repo contains each version of a Java Dungeons and Dragons attack simulator game, the projects goal:<br>
+- Using the rules of D&D create an application that first determines if a player/enemy lands a hit (including potential criticals) then determine the damage dealt
+    - Note that damage dice syntax for d&d is {x}d{y} the x stands for how many dice (if omitted then 1 die) and the y is for the sides of the dice example: 2d4 roll 2 4 sided dice. d10 = roll 1 10 sided die. 6d8 roll 6 8 sided dice.
+    - D&D rules:
+        - to determine if an attack results in a hit:
+        - 1. roll a d20
+        - 2. if a 20 is rolled this is considered an Natural 20 -> the attack lands and is considered critical (roll damage twice)
+        - 3. if a 1 is rolled this is a natural 1 and is considered a critical miss.
+        - 4. after the roll add the attack modifier
+        - 5. if total is above targets AC + defense modifier then the attack lands and damage should be calculated by rolling the damage dice of the attack
 
-- Each turn:
-    - Each player rolls their dice but keeps the results secret from the other player.
-    - subRounds:
-        - the lead player looks at their dice and picks a die value and amount of dice. They are claiming there are at least that many of that die is in play. The player does not have to have those dice to make the claim and the rules for following claims show why someone may want to raise a number.
-            - example: Player1 dice: 1 2 2 3 3 5 6 Player 2 dice: 1 1 2 2 2 3 4
-        - player one may claim 3 2s meaning he is stating there are AT LEAST three dice with a value of two in the game. Player 2 then decides if player 1 is lying or they make a new claim. Since they have 3 2s they know the player is not wrong. so subround moves to player 2s turn to make a claim.
-        - Player 2s claim must follow the following rules.
-            - player 2 must increase at least one of the two numbers. so either saying something like:
-                - 4 2s, 5 2s, 2 3s, for example of a small move they may also go 3 3s and increase both numbers
-            - however player 2 can not reduce any numbers so they cannot claim 2 1s or 1 3s.
-        - subround continues until a player announces that the current claim is a lie.
+    - create a Static Calculator class that has the attack method: it should accept the following:
+        - (int ac, int defenseMod, int attackModifier, string damageDice)
 
-    - when the lie is called the dice are shown. if the claimer was telling the truth then the caller looses one die from their hand. if the claimer was the liar then they loose a die.
-- A player looses when they only have two dice left.
+    - it should print one of the following strings:
+        - "Hit X damage delt"
+        - "Miss 0 damage"
+        - "Critical Hit! X + Y = Z damage"
+        - "Critical Miss!"
 
-Currently `main` contains version 1 of this code which ... (fill in)
+    - and return the damage;
+    
+Breakdown of versions...
+- v1.0 can roll a number between 1 and 20
+- v1.1 can determine if critical hit or miss.
+- v1.2 if not above can add attack and defense modifiers to determine hit
+- v1.3 parse damage roll into number of standard dice.
+- v1.4 parse damage roll into number of specified dice.
+- v1.5 determine damage delt.
+- v1.6 roll damage again if critical hit.
+- v1.7 display correct results and return the damage amount.
+    
+Extra Challenge...
+ - create a character class to store AC, Attack and defense modifiers, as well as a weapon and armor
+ - weapon class: stores DamageDice and any additional attack modifiers.
+ - armor class: stores AC modifier
+ - update your calculator to accept two characters for the attack: the attacker and the target. update method to still work with this configuration. (consider overload provide raw data or the two characters.)
