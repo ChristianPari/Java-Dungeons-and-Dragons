@@ -4,11 +4,10 @@ import java.util.Random;
 
 public class Die {
   // variables
-  private int sides = 6;
+  private int sides;
   private int dieValue = 0;
 
   // constructors
-  public Die() {}
   public Die(int sides) { this.sides = sides; }
 
   // methods
