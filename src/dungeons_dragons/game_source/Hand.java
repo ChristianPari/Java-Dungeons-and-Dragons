@@ -6,23 +6,24 @@ import java.util.Random;
 
 public class Hand {
   // variables
-  private int numberOfDice;
-  private int sidesOfDie;
   public List<Die> dice = new ArrayList<>();
 
   // constructors
-  public Hand(
-          int sidesOfDie,
-          int numberOfDice
-  ) {
-    this.numberOfDice = numberOfDice;
-    generateDice(sidesOfDie);
+  public Hand() {
+    generateDice();
   }
 
   // methods
-  private void generateDice(int sidesOnDie) {
-    for (int count = 0; count < numberOfDice; count++) {
-      dice.add(new Die(sidesOnDie));
+  private void generateDice() {
+    for (var diceType : DiceTypes.values()) {
+      int sides = Integer.parseInt(diceType.toString().substring(1));
+      var die = new Die(sides);
+
+      if (sides == 10) {
+        // DnD usually has 2 d10 dice
+        dice.add(die);
+      }
+      dice.add(die);
     }
   }
 
