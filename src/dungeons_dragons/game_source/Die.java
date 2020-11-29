@@ -6,12 +6,13 @@ public class Die {
   // variables
   private int sides;
   private int dieValue = 0;
+  private final Random random = new Random();
 
   // constructors
   public Die(int sides) { this.sides = sides; }
 
   // methods
-  public void roll(Random random) {
+  public void roll() {
     int numberRolled = random.nextInt(sides) + 1;
     dieValue = numberRolled;
   }
