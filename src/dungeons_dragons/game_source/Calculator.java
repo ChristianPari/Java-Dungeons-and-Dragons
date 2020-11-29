@@ -1,28 +1,29 @@
 package dungeons_dragons.game_source;
 
 public class Calculator {
+  // variables
   private static final int CRITICAL_HIT = 20;
   private static final int CRITICAL_MISS = 1;
   private static Die d20;
 
+  // constructors
   public Calculator(
       Die d20
   ) {
     this.d20 = d20;
   }
 
-
+  // methods
   public static int attack(
-      int armorClass,
-      int defenseModifier,
+      String damageDice,
       int attackModifier,
-      String damageDice
+      int armorClass,
+      int defenseModifier
   ) {
     // armorClass and defenseModifier are relative to the TARGET
     // attackModifier and damageDice are relative to the CHARACTER attacking
     String outputMsg = "";
-    d20.roll();
-    int rollValue = d20.getValue();
+    int rollValue = rollD20();
     int damage = 0;
 
     if (rollValue == CRITICAL_MISS) {
@@ -55,6 +56,24 @@ public class Calculator {
 
     System.out.println(outputMsg);
     return damage;
+  }
+
+  public static int attack(
+      Character attacker,
+      Character defender
+  ) {
+    return attack(
+        attacker.getWeapon().getDamageDice(),
+        attacker.getAttackModifier(),
+        defender.getArmorClass(),
+        defender.getDefenseModifier()
+    );
+  }
+
+  private static int rollD20() {
+    d20.roll();
+    int rollValue = d20.getValue();
+    return rollValue;
   }
 
   private static int calculateDamage(

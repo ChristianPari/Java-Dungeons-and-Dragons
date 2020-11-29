@@ -1,18 +1,36 @@
 package dungeons_dragons.game_source;
 
 public class Character {
-  private String name;
-  private String race;
-  private String type;
-  public int hp = 100;
+  // variables
+  private Armor armor;
+  private Weapon weapon;
+  private int armorClass;
+  private int attackModifier;
+  private int defenseModifier;
 
+  // constructors
   public Character(
-      String name,
-      String race,
-      String type
+      Armor armor,
+      Weapon weapon,
+      int armorClass,
+      int attackModifier,
+      int defenseModifier
   ) {
-    this.name = name;
-    this.race = race;
-    this.type = type;
+    this.armor = armor;
+    this.weapon = weapon;
+    this.armorClass = armorClass;
+    this.attackModifier = attackModifier;
+    this.defenseModifier = defenseModifier;
   }
+
+  // getters
+  public Armor getArmor() { return armor; }
+
+  public Weapon getWeapon() { return weapon; }
+
+  public int getArmorClass() { return armorClass; }
+
+  public int getAttackModifier() { return attackModifier; }
+
+  public int getDefenseModifier() { return defenseModifier; }
 }

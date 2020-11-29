@@ -18,6 +18,8 @@ public class Die {
   }
 
   // getters
+  public int getSides() { return sides; }
+
   public int getValue() {
     if (dieValue == 0) {
       System.out.println("Die has not been rolled...");

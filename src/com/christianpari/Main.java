@@ -23,6 +23,6 @@ public class Main {
         System.out.print("What is your damage die?\nDie: ");
         String damageDie = scanner.nextLine();
         scanner.close();
-        System.out.println(calc.attack(armorClass, defenseMod, attackMod, damageDie));
+        System.out.println(calc.attack(damageDie, attackMod, armorClass, defenseMod));
     }
 }
