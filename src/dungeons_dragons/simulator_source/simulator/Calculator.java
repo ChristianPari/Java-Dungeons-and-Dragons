@@ -54,6 +54,7 @@ public class Calculator {
 
     rollValue += attackModifier;
     int targetsDefense = armorClass + defenseModifier;
+    System.out.println("Total roll value: " + rollValue + " vs Enemys' Defense: " + targetsDefense);
 
     if (rollValue > targetsDefense) {
       damage = calculateDamage("standard", damageDice);
@@ -62,13 +63,14 @@ public class Calculator {
       outputMsg = "Miss 0 Damage";
     }
 
-    System.out.println(outputMsg);
+    System.out.println("\n" + outputMsg);
     return damage;
   }
 
   private static int rollD20() {
     d20.roll();
     int rollValue = d20.getValue();
+    System.out.println("\nAttackers' d20 rolled: " + rollValue);
     return rollValue;
   }
 
@@ -84,6 +86,8 @@ public class Calculator {
 
     int dieSides = Integer.parseInt(damageDieInfo[1]);
 
+    System.out.println("\nRolling Damage Die: " + damageDie);
+
     Die dieType = new Die(dieSides);
     int damage = 0;
 
@@ -91,6 +95,7 @@ public class Calculator {
       int start = 0;
       while (start < dieCount) {
         dieType.roll();
+        System.out.println("Rolled: " + dieType.getValue());
         damage += dieType.getValue();
         start++;
       }
