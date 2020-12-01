@@ -1,4 +1,4 @@
-package dungeons_dragons.game_source;
+package dungeons_dragons.game_source.player.abilities;
 
 public class Weapon {
   // variables
@@ -8,10 +8,10 @@ public class Weapon {
   // constructors
   public Weapon(
       int attackModifier,
-      String damageDice
+      String weaponType
   ) {
     this.attackModifier = attackModifier;
-    this.damageDice = damageDice;
+    this.damageDice = new WeaponTypes().getDamageDice(weaponType);
   }
 
   // getters

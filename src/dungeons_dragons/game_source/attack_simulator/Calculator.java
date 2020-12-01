@@ -20,8 +20,8 @@ public class Calculator {
       int armorClass,
       int defenseModifier
   ) {
-    // armorClass and defenseModifier are relative to the TARGET
     // attackModifier and damageDice are relative to the CHARACTER attacking
+    // armorClass and defenseModifier are relative to the TARGET
     String outputMsg = "";
     int rollValue = rollD20();
     int damage = 0;
