@@ -1,28 +1,37 @@
-package dungeons_dragons.game_source;
+package dungeons_dragons.simulator_source.simulator;
+
+import dungeons_dragons.simulator_source.character.Character;
+import dungeons_dragons.simulator_source.dice.Die;
 
 public class Calculator {
+  // variables
   private static final int CRITICAL_HIT = 20;
   private static final int CRITICAL_MISS = 1;
-  private static Die d20;
+  private static Die d20 = new Die(20);
 
-  public Calculator(
-      Die d20
+  // methods
+  public static int attack(
+      Character attacker,
+      Character enemy
   ) {
-    this.d20 = d20;
+    return attackCalculator(
+        attacker.getWeapon().getDamageDice(),
+        attacker.getAttackModifier(),
+        enemy.getArmorClass(),
+        enemy.getDefenseModifier()
+    );
   }
 
-
-  public static int attack(
-      int armorClass,
-      int defenseModifier,
+  private static int attackCalculator(
+      String damageDice,
       int attackModifier,
-      String damageDice
+      int armorClass,
+      int defenseModifier
   ) {
-    // armorClass and defenseModifier are relative to the TARGET
     // attackModifier and damageDice are relative to the CHARACTER attacking
+    // armorClass and defenseModifier are relative to the TARGET
     String outputMsg = "";
-    d20.roll();
-    int rollValue = d20.getValue();
+    int rollValue = rollD20();
     int damage = 0;
 
     if (rollValue == CRITICAL_MISS) {
@@ -55,6 +64,12 @@ public class Calculator {
 
     System.out.println(outputMsg);
     return damage;
+  }
+
+  private static int rollD20() {
+    d20.roll();
+    int rollValue = d20.getValue();
+    return rollValue;
   }
 
   private static int calculateDamage(
