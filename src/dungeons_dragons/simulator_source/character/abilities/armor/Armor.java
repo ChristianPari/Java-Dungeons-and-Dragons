@@ -1,4 +1,4 @@
-package dungeons_dragons.game_source.player.abilities;
+package dungeons_dragons.simulator_source.character.abilities.armor;
 
 public class Armor {
   // variables

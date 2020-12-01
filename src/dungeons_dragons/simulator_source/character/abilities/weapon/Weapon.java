@@ -1,11 +1,17 @@
-package dungeons_dragons.game_source.player.abilities;
+package dungeons_dragons.simulator_source.character.abilities.weapon;
 
 public class Weapon {
   // variables
-  private int attackModifier;
+  private int attackModifier = 0;
   private String damageDice;
 
   // constructors
+  public Weapon(
+      String weaponType
+  ) {
+    this.damageDice = new WeaponTypes().getDamageDice(weaponType);
+  }
+
   public Weapon(
       int attackModifier,
       String weaponType

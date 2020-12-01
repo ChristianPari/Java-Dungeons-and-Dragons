@@ -53,7 +53,7 @@ public class Console {
     return input;
   }
 
-  public static int getNumber(
+  public static int getInteger(
       String prompt,
       String inputStarter,
       int min,

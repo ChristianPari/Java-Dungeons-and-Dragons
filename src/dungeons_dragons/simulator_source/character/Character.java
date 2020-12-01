@@ -1,4 +1,8 @@
-package dungeons_dragons.game_source;
+//todo: refactor the use of the armor and weapon
+package dungeons_dragons.simulator_source.character;
+
+import dungeons_dragons.simulator_source.character.abilities.armor.Armor;
+import dungeons_dragons.simulator_source.character.abilities.weapon.Weapon;
 
 public class Character {
   // variables
@@ -10,15 +14,14 @@ public class Character {
 
   // constructors
   public Character(
-      Armor armor,
-      Weapon weapon,
-      int armorClass,
+      String armorType,
+      String weaponType,
       int attackModifier,
       int defenseModifier
   ) {
-    this.armor = armor;
-    this.weapon = weapon;
-    this.armorClass = armorClass;
+    this.armor = new Armor(armorType);
+    this.weapon = new Weapon(weaponType);
+    this.armorClass = armor.getArmor();
     this.attackModifier = attackModifier;
     this.defenseModifier = defenseModifier;
   }

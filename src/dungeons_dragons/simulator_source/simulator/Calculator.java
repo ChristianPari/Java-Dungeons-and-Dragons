@@ -1,20 +1,28 @@
-package dungeons_dragons.game_source;
+package dungeons_dragons.simulator_source.simulator;
+
+import dungeons_dragons.simulator_source.character.Character;
+import dungeons_dragons.simulator_source.dice.Die;
 
 public class Calculator {
   // variables
   private static final int CRITICAL_HIT = 20;
   private static final int CRITICAL_MISS = 1;
-  private static Die d20;
-
-  // constructors
-  public Calculator(
-      Die d20
-  ) {
-    this.d20 = d20;
-  }
+  private static Die d20 = new Die(20);
 
   // methods
   public static int attack(
+      Character attacker,
+      Character enemy
+  ) {
+    return attackCalculator(
+        attacker.getWeapon().getDamageDice(),
+        attacker.getAttackModifier(),
+        enemy.getArmorClass(),
+        enemy.getDefenseModifier()
+    );
+  }
+
+  private static int attackCalculator(
       String damageDice,
       int attackModifier,
       int armorClass,
@@ -56,18 +64,6 @@ public class Calculator {
 
     System.out.println(outputMsg);
     return damage;
-  }
-
-  public static int attack(
-      Character attacker,
-      Character defender
-  ) {
-    return attack(
-        attacker.getWeapon().getDamageDice(),
-        attacker.getAttackModifier(),
-        defender.getArmorClass(),
-        defender.getDefenseModifier()
-    );
   }
 
   private static int rollD20() {
