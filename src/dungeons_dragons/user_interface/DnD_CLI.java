@@ -2,6 +2,8 @@ package dungeons_dragons.user_interface;
 
 import console.Console;
 import dungeons_dragons.simulator_source.character.Character;
+import dungeons_dragons.simulator_source.character.abilities.armor.ArmorTypes;
+import dungeons_dragons.simulator_source.character.abilities.weapon.WeaponTypes;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,19 +22,32 @@ public class DnD_CLI {
     Character attacker = createCharacter();
     System.out.println("\nNext, create the enemy...");
     Character enemy = createCharacter();
-    List<Character> characters = Arrays.asList(attacker, enemy);
-    return characters;
+    return Arrays.asList(attacker, enemy);
   }
 
   private static Character createCharacter() {
-    String armorType = Console.getString(
-        "Armor Type? [none, leather, chain, plate]",
-        "Armor: "
-    );
-    String weaponType = Console.getString(
-        "Weapon Type? [simple melee, simple ranged, martial melee, martial ranged]",
-        "Weapon: "
-    );
+    String armorType;
+    while (true) {
+      armorType = Console.getString(
+          "Armor Type? [none, leather, chain, plate]",
+          "Armor: "
+      );
+      boolean armorCheck = checkResponse("armor", armorType);
+      if (armorCheck)
+        break;
+    }
+
+    String weaponType;
+    while (true) {
+      weaponType = Console.getString(
+          "Weapon Type? [simple melee, simple ranged, martial melee, martial ranged]",
+          "Weapon: "
+      );
+      boolean weaponCheck = checkResponse("weapon", weaponType);
+      if (weaponCheck)
+        break;
+    }
+
     int attackModifier = Console.getInteger(
         "What is your attack modifier?",
         "Attack Mod: ",
@@ -48,4 +63,26 @@ public class DnD_CLI {
 
     return new Character(armorType, weaponType, attackModifier, defenseModifier);
   }
+
+  private static boolean checkResponse(
+      String type,
+      String response
+  ) {
+    boolean checker = false;
+
+    switch (type) {
+      case "armor":
+        if (new ArmorTypes().getArmorTypes().containsKey(response))
+          checker = true;
+        break;
+
+      case "weapon":
+        if (new WeaponTypes().getWeaponTypes().containsKey(response))
+          checker = true;
+        break;
+    }
+
+    return checker;
+  }
+
 }
