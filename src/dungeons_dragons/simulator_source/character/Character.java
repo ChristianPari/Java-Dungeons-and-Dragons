@@ -1,4 +1,3 @@
-//todo: refactor the use of the armor and weapon
 package dungeons_dragons.simulator_source.character;
 
 import dungeons_dragons.simulator_source.character.abilities.armor.Armor;

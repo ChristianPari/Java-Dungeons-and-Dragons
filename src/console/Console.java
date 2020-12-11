@@ -82,6 +82,28 @@ public class Console {
     return choice;
   }
 
+  public static int getInteger(
+      String prompt,
+      String inputStarter
+  ) {
+    int choice = 0;
+    System.out.println(prompt);
+    System.out.print(inputStarter);
+
+    while (true) {
+      try {
+        choice = scanner.nextInt();
+        scanner.nextLine();
+        break;
+      } catch (Exception e) {
+        scanner.next();
+        System.out.println("Please enter a valid input...\n");
+        System.out.print(inputStarter);
+      }
+    }
+    return choice;
+  }
+
   public static String separator(int length) {
     var builder = new StringBuilder();
     for (int count = 0; count < length; count++) {

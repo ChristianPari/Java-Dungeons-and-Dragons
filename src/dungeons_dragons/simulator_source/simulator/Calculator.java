@@ -1,7 +1,7 @@
 package dungeons_dragons.simulator_source.simulator;
 
-import dungeons_dragons.simulator_source.character.Character;
 import dungeons_dragons.simulator_source.character.Die;
+import dungeons_dragons.simulator_source.character.Character;
 
 public class Calculator {
   // variables
