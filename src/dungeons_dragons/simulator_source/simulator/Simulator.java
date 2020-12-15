@@ -1,7 +1,7 @@
 package dungeons_dragons.simulator_source.simulator;
 
-import dungeons_dragons.user_interface.DnD_CLI;
 import dungeons_dragons.simulator_source.character.Character;
+import dungeons_dragons.user_interface.DnD_CLI;
 
 import java.util.List;
 

@@ -34,4 +34,4 @@ Extra Challenge...
  - create a character class to store AC, Attack and defense modifiers, as well as a weapon and armor
  - weapon class: stores DamageDice and any additional attack modifiers.
  - armor class: stores AC modifier
- - update your calculator to accept two characters for the attack: the attacker and the target. update method to still work with this configuration. (consider overload provide raw data or the two characters.)
+ - update your calculator to accept two baseCharacters for the attack: the attacker and the target. update method to still work with this configuration. (consider overload provide raw data or the two baseCharacters.)

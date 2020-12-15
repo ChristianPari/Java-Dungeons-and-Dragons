@@ -1,17 +1,15 @@
 package dungeons_dragons.user_interface;
 
 import console.Console;
+import dungeons_dragons.simulator_source.character.BaseCharacter;
+import dungeons_dragons.simulator_source.character.Character;
 import dungeons_dragons.simulator_source.character.abilities.armor.ArmorTypes;
 import dungeons_dragons.simulator_source.character.abilities.weapon.WeaponTypes;
-import dungeons_dragons.simulator_source.character.Character;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class DnD_CLI {
-  private static final int MIN = 0;
-  private static final int MAX = 10;
-
   public static void welcome() {
     System.out.println("Welcome to the 'Dungeons and Dragons Attack Simulator v2'!");
     System.out.println("You will begin by creating the characters, an attacker and an enemy.");
@@ -60,7 +58,7 @@ public class DnD_CLI {
         "Defense Mod: "
     );
 
-    return new Character(armorType, weaponType, attackModifier, defenseModifier);
+    return new BaseCharacter(armorType, weaponType, attackModifier, defenseModifier);
   }
 
   private static boolean checkResponse(
