@@ -1,15 +1,14 @@
 package dungeons_dragons.simulator_source.character.abilities.armor;
 
-import java.util.HashMap;
+import dungeons_dragons.simulator_source.character.abilities.Utilities;
+import java.util.Map;
 
 public class ArmorTypes {
   // variables
-  private HashMap<String, Integer> armorTypes = new HashMap<>() {{
-    put("none", 10);
-    put("leather", 11);
-    put("chain", 13);
-    put("plate", 18);
-  }};
+  private final Map<String, Integer> armorTypes = Utilities.createMap(
+    new String[]{"none", "leather", "chain", "plate"},
+    new Integer[]{10, 11, 13, 18}
+  );
 
   // methods
   public int getArmorPoints(String armorType) {
@@ -17,5 +16,5 @@ public class ArmorTypes {
   }
 
   // getters
-  public HashMap<String, Integer> getArmorTypes() { return armorTypes; }
+  public Map<String, Integer> getArmorTypes() { return armorTypes; }
 }

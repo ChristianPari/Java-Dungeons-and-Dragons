@@ -5,11 +5,11 @@ import dungeons_dragons.simulator_source.character.abilities.weapon.Weapon;
 
 public class BaseCharacter implements Character {
   // variables
-  private Armor armor;
-  private Weapon weapon;
-  private int armorClass;
-  private int attackModifier;
-  private int defenseModifier;
+  private final Armor armor;
+  private final Weapon weapon;
+  private final int armorClass;
+  private final int attackModifier;
+  private final int defenseModifier;
 
   // constructors
   public BaseCharacter(

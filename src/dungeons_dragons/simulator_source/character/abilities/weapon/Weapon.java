@@ -3,7 +3,7 @@ package dungeons_dragons.simulator_source.character.abilities.weapon;
 public class Weapon {
   // variables
   private int attackModifier = 0;
-  private String damageDice;
+  private final String damageDice;
 
   // constructors
   public Weapon(

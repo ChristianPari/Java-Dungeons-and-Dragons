@@ -12,9 +12,10 @@ import java.util.List;
 public class DnD_CLI {
   public static void welcome() {
     System.out.println("Welcome to the 'Dungeons and Dragons Attack Simulator v2'!");
-    System.out.println("You will begin by creating the characters, an attacker and an enemy.");
+    System.out.println("You will begin by creating the characters, then assigning 'attacker' and 'enemy' to each " +
+      "character.");
     System.out.println("The simulator will then run and respond back with whether or not the attacker landed" +
-        "their attack and how much damage was inflicted unto the enemy.\n");
+        "their attack and how much damage was inflicted onto the enemy.\n");
   }
 
   public static List<Character> createSimulation() {

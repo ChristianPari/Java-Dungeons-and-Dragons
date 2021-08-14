@@ -7,7 +7,7 @@ public class Calculator {
   // variables
   private static final int CRITICAL_HIT = 20;
   private static final int CRITICAL_MISS = 1;
-  private static Die d20 = new Die(20);
+  private static final Die d20 = new Die(20);
 
   // methods
   public static int attack(

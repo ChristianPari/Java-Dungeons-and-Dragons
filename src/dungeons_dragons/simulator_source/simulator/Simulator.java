@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Simulator {
   // variables
-  private Character attacker;
-  private Character enemy;
+  private final Character attacker;
+  private final Character enemy;
 
   // constructors
   public Simulator(
